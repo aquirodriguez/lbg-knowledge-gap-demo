@@ -1,5 +1,5 @@
 import { AnimatePresence, motion, useAnimationControls } from "motion/react";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const question = "What's the difference between Mercer and Madison? They look the same.";
 
@@ -91,8 +91,7 @@ function ClockIcon() {
       <path d="M12 7.8v4.6l3 1.8" stroke="currentColor" strokeLinecap="round" strokeWidth="1.8" />
     </svg>
   );
-}
-
+}\n
 function QuestionCard({ controls, compact = false }) {
   return (
     <motion.div
