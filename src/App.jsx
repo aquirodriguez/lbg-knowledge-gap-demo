@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from "motion/react";
-import React, { useMemo, useState } from "react";
+import * as React from "react";
 
 const question = "What\u2019s the difference between Mercer and Madison? They look the same.";
 const bestAnswer =
@@ -322,7 +322,7 @@ function StageShell({ label, stage, children }) {
 }
 
 function CaptureScene({ stage }) {
-  const motionState = useMemo(() => {
+  const motionState = React.useMemo(() => {
     if (stage === "capture") return { x: 0, y: -22, scale: 1.03, opacity: 1, rotate: -0.4 };
     if (stage === "moving") return { x: 0, y: 58, scale: 0.58, opacity: 0.86, rotate: 2 };
     return { x: 0, y: 90, scale: 0.2, opacity: 0, rotate: 0 };
@@ -360,9 +360,9 @@ function CaptureScene({ stage }) {
 }
 
 function KnowledgeGapFlow() {
-  const [stage, setStage] = useState("ask");
-  const [running, setRunning] = useState(false);
-  const sound = useMemo(() => createSoundDesign(), []);
+  const [stage, setStage] = React.useState("ask");
+  const [running, setRunning] = React.useState(false);
+  const sound = React.useMemo(() => createSoundDesign(), []);
 
   async function startFlow() {
     if (running) return;
