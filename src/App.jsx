@@ -1,9 +1,9 @@
 import { AnimatePresence, motion } from "motion/react";
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useMemo, useState } from "react";
 
-const question = "What’s the difference between Mercer and Madison? They look the same.";
+const question = "What\u2019s the difference between Mercer and Madison? They look the same.";
 const bestAnswer =
-  "Mercer and Madison are David Yurman collection names. I don’t have the fully approved answer for the exact difference between those two collections yet.";
+  "Mercer and Madison are David Yurman collection names. I don\u2019t have the fully approved answer for the exact difference between those two collections yet.";
 
 const stages = [
   "ask",
@@ -31,7 +31,9 @@ function DayGlassBackground() {
 
 function GlassCard({ children, className = "" }) {
   return (
-    <div className={`border border-white/70 bg-white/50 shadow-glass backdrop-blur-2xl ${className}`}>
+    <div
+      className={`border border-white/70 bg-white/50 shadow-glass backdrop-blur-2xl ${className}`}
+    >
       {children}
     </div>
   );
@@ -84,12 +86,12 @@ function ClockIcon() {
   );
 }
 
-function QuestionCard({ compact = false }) {
+function QuestionCard({ compact = false, className = "" }) {
   return (
     <GlassCard
       className={`relative overflow-hidden rounded-[28px] p-5 ${
         compact ? "max-w-[280px]" : "w-full max-w-[520px]"
-      }`}
+      } ${className}`}
     >
       <div className="absolute -right-12 -top-14 h-32 w-32 rounded-full bg-[#efc65d]/18 blur-3xl" />
       <div className="relative flex items-start gap-3">
@@ -135,10 +137,10 @@ function GapMessage() {
         <span className="text-xs font-bold uppercase tracking-[0.12em]">Worth adding</span>
       </div>
       <h2 className="text-balance text-2xl font-extrabold leading-tight text-[#10255a]">
-        Good question — this is worth adding.
+        Good question {"\u2014"} this is worth adding.
       </h2>
       <p className="mt-3 text-base leading-relaxed text-[#59657e]">
-        We’ll get the right answer reviewed and let you know when it’s ready.
+        We{"\u2019"}ll get the right answer reviewed and let you know when it{"\u2019"}s ready.
       </p>
     </GlassCard>
   );
@@ -157,7 +159,9 @@ function AwaitingStack({ active = false }) {
       />
       <GlassCard className="relative overflow-hidden rounded-[30px] p-6">
         <div className="mb-5 flex items-center justify-between">
-          <p className="text-base font-extrabold text-[#10255a]">Awaiting Answer</p>
+          <div>
+            <p className="text-base font-extrabold text-[#10255a]">Awaiting Answer</p>
+          </div>
           <span className="grid h-10 w-10 place-items-center rounded-full border border-[#efd58f] bg-[#fff7df] text-[#b87a14]">
             <ClockIcon />
           </span>
@@ -176,27 +180,46 @@ function AwaitingStack({ active = false }) {
 
 function GoldSeal() {
   return (
-    <motion.div
-      animate={{ opacity: 1, scale: 1, rotate: 0 }}
-      className="mx-auto grid h-36 w-36 place-items-center rounded-full bg-[conic-gradient(from_20deg,#d39122,#fff0ae,#dca12d,#fff7c8,#cc891a,#f8d16b,#d39122)] p-2 shadow-gold"
-      initial={{ opacity: 0, scale: 0.62, rotate: -8 }}
-      transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
-    >
-      <div className="grid h-full w-full place-items-center rounded-full border border-white/70 bg-[radial-gradient(circle_at_32%_22%,#fff8d8,#eeb949_56%,#ca861d)]">
-        <motion.svg aria-hidden="true" className="h-16 w-16 text-white drop-shadow" fill="none" viewBox="0 0 64 64">
-          <motion.path
-            animate={{ pathLength: 1 }}
-            d="M18 33.5 28.2 43 47 21"
-            initial={{ pathLength: 0 }}
-            stroke="currentColor"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="6"
-            transition={{ delay: 0.28, duration: 0.62, ease: "easeOut" }}
-          />
-        </motion.svg>
-      </div>
-    </motion.div>
+    <div className="relative mx-auto grid h-48 w-48 place-items-center">
+      <motion.div
+        animate={{ opacity: [0, 0.34, 0], scale: [0.55, 1.28, 1.72] }}
+        className="absolute h-36 w-36 rounded-full border border-[#e5b147]/50"
+        initial={{ opacity: 0, scale: 0.55 }}
+        transition={{ delay: 0.32, duration: 0.9, ease: "easeOut" }}
+      />
+      <motion.div
+        animate={{ opacity: [0, 0.32, 0.16], scale: [0.72, 1.08, 1] }}
+        className="absolute h-24 w-40 rounded-full bg-[#c88b1f]/22 blur-xl"
+        initial={{ opacity: 0, scale: 0.68 }}
+        transition={{ delay: 0.25, duration: 0.58, ease: "easeOut" }}
+      />
+      <motion.div
+        animate={{
+          opacity: 1,
+          rotate: [-7, 1.2, 0],
+          scale: [1.22, 0.92, 1.02, 1],
+          y: [-118, 12, -3, 0]
+        }}
+        className="relative grid h-36 w-36 place-items-center rounded-full bg-[conic-gradient(from_20deg,#d39122,#fff0ae,#dca12d,#fff7c8,#cc891a,#f8d16b,#d39122)] p-2 shadow-gold"
+        initial={{ opacity: 0, rotate: -7, scale: 1.18, y: -118 }}
+        transition={{ duration: 0.82, ease: [0.16, 1, 0.3, 1], times: [0, 0.46, 0.72, 1] }}
+      >
+        <div className="grid h-full w-full place-items-center rounded-full border border-white/70 bg-[radial-gradient(circle_at_32%_22%,#fff8d8,#eeb949_56%,#ca861d)]">
+          <motion.svg aria-hidden="true" className="h-16 w-16 text-white drop-shadow" fill="none" viewBox="0 0 64 64">
+            <motion.path
+              animate={{ pathLength: 1 }}
+              d="M18 33.5 28.2 43 47 21"
+              initial={{ pathLength: 0 }}
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="6"
+              transition={{ delay: 0.46, duration: 0.5, ease: "easeOut" }}
+            />
+          </motion.svg>
+        </div>
+      </motion.div>
+    </div>
   );
 }
 
@@ -261,12 +284,15 @@ function CaptureScene({ stage }) {
 function KnowledgeGapFlow() {
   const [stage, setStage] = useState("ask");
   const [running, setRunning] = useState(false);
+  const sound = useMemo(() => createSoundDesign(), []);
 
   async function startFlow() {
     if (running) return;
+    sound.play("tap");
     setRunning(true);
     for (const nextStage of stages.slice(1)) {
       setStage(nextStage);
+      sound.play(nextStage);
       await delay(stageDuration(nextStage));
     }
     setRunning(false);
@@ -314,7 +340,10 @@ function KnowledgeGapFlow() {
           )}
 
           {(stage === "capture" || stage === "moving" || stage === "stack") && (
-            <StageShell key="capture-flow" label={stage === "stack" ? "Awaiting Answer" : "Question captured"}>
+            <StageShell
+              key="capture-flow"
+              label={stage === "stack" ? "Awaiting Answer" : "Question captured"}
+            >
               <CaptureScene stage={stage} />
             </StageShell>
           )}
@@ -339,9 +368,9 @@ function KnowledgeGapFlow() {
             <StageShell key="notify" label="Updates">
               <GoldSeal />
               <h1 className="mt-7 max-w-lg text-balance text-3xl font-extrabold leading-tight text-[#10255a]">
-                We’ll let you know when the answer is ready.
+                We{"\u2019"}ll let you know when the answer is ready.
               </h1>
-              <p className="mt-3 text-base leading-relaxed text-[#5c6780]">You’ll see it in Updates.</p>
+              <p className="mt-3 text-base leading-relaxed text-[#5c6780]">You{"\u2019"}ll see it in Updates.</p>
               <div className="mt-8">
                 <SoftButton variant="gold">Done</SoftButton>
               </div>
@@ -355,15 +384,129 @@ function KnowledgeGapFlow() {
 
 function stageDuration(stage) {
   return {
-    answer: 1300,
-    gap: 1500,
-    capture: 900,
-    moving: 1100,
-    stack: 950,
-    seal: 1100,
-    thanks: 1500,
+    answer: 3400,
+    gap: 3600,
+    capture: 1400,
+    moving: 1600,
+    stack: 1500,
+    seal: 1600,
+    thanks: 3200,
     notify: 0
   }[stage];
+}
+
+function createSoundDesign() {
+  let context;
+  let master;
+
+  function getContext() {
+    if (!context) {
+      context = new AudioContext();
+      master = context.createGain();
+      master.gain.value = 0.16;
+      master.connect(context.destination);
+    }
+    if (context.state === "suspended") context.resume();
+    return context;
+  }
+
+  function tone({ frequency, start = 0, duration = 0.16, type = "sine", gain = 0.22, detune = 0 }) {
+    const ctx = getContext();
+    const oscillator = ctx.createOscillator();
+    const envelope = ctx.createGain();
+    const now = ctx.currentTime + start;
+
+    oscillator.type = type;
+    oscillator.frequency.setValueAtTime(frequency, now);
+    oscillator.detune.setValueAtTime(detune, now);
+    envelope.gain.setValueAtTime(0.0001, now);
+    envelope.gain.exponentialRampToValueAtTime(gain, now + 0.018);
+    envelope.gain.exponentialRampToValueAtTime(0.0001, now + duration);
+
+    oscillator.connect(envelope);
+    envelope.connect(master);
+    oscillator.start(now);
+    oscillator.stop(now + duration + 0.02);
+  }
+
+  function noise({ start = 0, duration = 0.22, gain = 0.08, highpass = 520, lowpass = 2600 }) {
+    const ctx = getContext();
+    const length = Math.max(1, Math.floor(ctx.sampleRate * duration));
+    const buffer = ctx.createBuffer(1, length, ctx.sampleRate);
+    const data = buffer.getChannelData(0);
+
+    for (let index = 0; index < length; index += 1) {
+      const fade = 1 - index / length;
+      data[index] = (Math.random() * 2 - 1) * fade * fade;
+    }
+
+    const source = ctx.createBufferSource();
+    const high = ctx.createBiquadFilter();
+    const low = ctx.createBiquadFilter();
+    const envelope = ctx.createGain();
+    const now = ctx.currentTime + start;
+
+    high.type = "highpass";
+    high.frequency.value = highpass;
+    low.type = "lowpass";
+    low.frequency.value = lowpass;
+    envelope.gain.setValueAtTime(0.0001, now);
+    envelope.gain.exponentialRampToValueAtTime(gain, now + 0.025);
+    envelope.gain.exponentialRampToValueAtTime(0.0001, now + duration);
+
+    source.buffer = buffer;
+    source.connect(high);
+    high.connect(low);
+    low.connect(envelope);
+    envelope.connect(master);
+    source.start(now);
+    source.stop(now + duration + 0.02);
+  }
+
+  return {
+    play(cue) {
+      try {
+        if (cue === "tap") {
+          tone({ frequency: 420, duration: 0.08, gain: 0.08 });
+        }
+        if (cue === "answer") {
+          tone({ frequency: 520, duration: 0.14, gain: 0.07 });
+        }
+        if (cue === "gap") {
+          tone({ frequency: 330, duration: 0.13, gain: 0.055, type: "triangle" });
+          tone({ frequency: 440, start: 0.06, duration: 0.12, gain: 0.045, type: "triangle" });
+        }
+        if (cue === "capture") {
+          tone({ frequency: 620, duration: 0.12, gain: 0.065 });
+          noise({ start: 0.02, duration: 0.18, gain: 0.025, highpass: 900, lowpass: 3200 });
+        }
+        if (cue === "moving") {
+          noise({ duration: 0.34, gain: 0.045, highpass: 700, lowpass: 4200 });
+          tone({ frequency: 560, start: 0.04, duration: 0.22, gain: 0.035, detune: 8 });
+        }
+        if (cue === "stack") {
+          tone({ frequency: 280, duration: 0.09, gain: 0.06, type: "triangle" });
+          tone({ frequency: 390, start: 0.08, duration: 0.12, gain: 0.05, type: "sine" });
+        }
+        if (cue === "seal") {
+          tone({ frequency: 138.59, duration: 0.11, gain: 0.09, type: "triangle" });
+          noise({ start: 0.006, duration: 0.12, gain: 0.055, highpass: 70, lowpass: 520 });
+          tone({ frequency: 523.25, start: 0.09, duration: 0.22, gain: 0.065 });
+          tone({ frequency: 659.25, start: 0.16, duration: 0.28, gain: 0.058 });
+          tone({ frequency: 783.99, start: 0.24, duration: 0.34, gain: 0.048 });
+        }
+        if (cue === "thanks") {
+          tone({ frequency: 587.33, duration: 0.2, gain: 0.045 });
+          tone({ frequency: 739.99, start: 0.09, duration: 0.25, gain: 0.04 });
+        }
+        if (cue === "notify") {
+          tone({ frequency: 659.25, duration: 0.16, gain: 0.04 });
+        }
+      } catch {
+        // Sound is a small enhancement; the flow should stay silent if audio is unavailable.
+      }
+    }
+  };
 }
 
 function delay(ms) {
