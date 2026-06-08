@@ -86,6 +86,77 @@ function ClockIcon() {
   );
 }
 
+function SparkleIcon() {
+  return (
+    <svg aria-hidden="true" className="h-5 w-5" fill="none" viewBox="0 0 24 24">
+      <path
+        d="M12 3.8 13.8 9l5.4 1.8-5.4 1.8L12 18l-1.8-5.4-5.4-1.8L10.2 9 12 3.8Z"
+        stroke="currentColor"
+        strokeLinejoin="round"
+        strokeWidth="1.55"
+      />
+    </svg>
+  );
+}
+
+function MiniGlassTile({ children, tone = "neutral", className = "" }) {
+  const tones = {
+    neutral: "border-white/80 bg-white/64 text-[#10255a]",
+    gold: "border-[#f2cf75]/80 bg-[#fff6dc]/68 text-[#b98017]",
+    emerald: "border-[#a8dec4]/80 bg-white/66 text-[#168052]",
+    amber: "border-[#efd58f]/90 bg-[#fff8e7]/70 text-[#b87a14]"
+  };
+
+  return (
+    <motion.div
+      animate={{ y: [0, -5, 0] }}
+      className={`rounded-2xl border p-3 shadow-[0_18px_40px_rgba(44,42,35,0.08)] backdrop-blur-2xl ${tones[tone]} ${className}`}
+      transition={{ duration: 4.6, ease: "easeInOut", repeat: Infinity }}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+function FlowBackdrop({ stage }) {
+  const showTrail = ["gap", "capture", "moving", "stack", "seal"].includes(stage);
+  const showBox = ["moving", "stack", "seal", "thanks", "notify"].includes(stage);
+
+  return (
+    <div className="pointer-events-none absolute inset-0 overflow-hidden">
+      <motion.div
+        animate={{ opacity: showTrail ? 0.56 : 0.18, scale: showTrail ? 1.04 : 0.94 }}
+        className="absolute bottom-16 left-[calc(50%-280px)] h-40 w-[560px] rounded-[999px] border-b-2 border-[#f1c968]/50 bg-[#edc454]/10 blur-[1px]"
+        transition={{ duration: 0.8, ease: "easeOut" }}
+      />
+      <motion.div
+        animate={{ opacity: showBox ? 0.72 : 0.28, y: showBox ? 0 : 18, scale: showBox ? 1 : 0.94 }}
+        className="absolute bottom-10 left-[calc(50%-7rem)] h-24 w-56 rounded-[28px] border border-[#f0d282]/55 bg-gradient-to-b from-white/58 to-[#f6cf71]/24 shadow-[0_28px_70px_rgba(198,134,25,0.16)] backdrop-blur-2xl"
+        transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
+      />
+      {showTrail && (
+        <motion.div
+          animate={{ opacity: [0, 0.72, 0], x: [-170, 70, 210], y: [24, 2, -10], scale: [0.8, 1.12, 0.72] }}
+          className="absolute bottom-24 left-1/2 h-2 w-2 rounded-full bg-[#f4d279] shadow-[0_0_24px_10px_rgba(239,196,91,0.26)]"
+          transition={{ duration: 3.8, ease: "easeInOut", repeat: Infinity, repeatDelay: 0.7 }}
+        />
+      )}
+      <MiniGlassTile className="absolute left-8 top-12 hidden w-28 rotate-[-8deg] sm:block" tone="gold">
+        <div className="mb-2 grid h-8 w-8 place-items-center rounded-xl bg-white/62">
+          <SparkleIcon />
+        </div>
+        <div className="h-2 w-16 rounded-full bg-current/20" />
+      </MiniGlassTile>
+      <MiniGlassTile className="absolute right-8 top-20 hidden w-28 rotate-[7deg] sm:block" tone={stage === "gap" ? "amber" : "neutral"}>
+        <div className="mb-2 grid h-8 w-8 place-items-center rounded-xl bg-white/62">
+          <ClockIcon />
+        </div>
+        <div className="h-2 w-14 rounded-full bg-current/20" />
+      </MiniGlassTile>
+    </div>
+  );
+}
+
 function QuestionCard({ compact = false, className = "" }) {
   return (
     <GlassCard
@@ -180,7 +251,13 @@ function AwaitingStack({ active = false }) {
 
 function GoldSeal() {
   return (
-    <div className="relative mx-auto grid h-48 w-48 place-items-center">
+    <div className="relative mx-auto grid h-56 w-56 place-items-center">
+      <motion.div
+        animate={{ opacity: [0, 0.26, 0.12], scale: [0.78, 1.08, 1] }}
+        className="absolute bottom-8 h-20 w-40 rounded-full bg-[#b87916]/20 blur-xl"
+        initial={{ opacity: 0, scale: 0.78 }}
+        transition={{ delay: 0.24, duration: 0.54, ease: "easeOut" }}
+      />
       <motion.div
         animate={{ opacity: [0, 0.34, 0], scale: [0.55, 1.28, 1.72] }}
         className="absolute h-36 w-36 rounded-full border border-[#e5b147]/50"
@@ -223,7 +300,7 @@ function GoldSeal() {
   );
 }
 
-function StageShell({ label, children }) {
+function StageShell({ label, stage, children }) {
   return (
     <motion.section
       animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -234,6 +311,7 @@ function StageShell({ label, children }) {
     >
       <div className="absolute -top-20 right-6 h-44 w-44 rounded-full bg-[#efc65d]/12 blur-3xl" />
       <div className="absolute -bottom-24 left-6 h-52 w-52 rounded-full bg-white/52 blur-3xl" />
+      <FlowBackdrop stage={stage} />
       <div className="relative z-10 mb-8 flex items-center gap-3 rounded-full border border-white/70 bg-white/52 px-4 py-2 shadow-[0_10px_28px_rgba(42,40,33,0.06)]">
         <span className="h-2 w-2 rounded-full bg-[#d7a235]" />
         <span className="text-xs font-bold uppercase tracking-[0.13em] text-[#667088]">{label}</span>
@@ -317,7 +395,7 @@ function KnowledgeGapFlow() {
       <div className="flex flex-1 items-center justify-center pb-6">
         <AnimatePresence mode="wait">
           {stage === "ask" && (
-            <StageShell key="ask" label="Ask question">
+            <StageShell key="ask" label="Ask question" stage={stage}>
               <QuestionCard />
               <div className="mt-8">
                 <SoftButton disabled={running} onClick={startFlow}>
@@ -328,13 +406,13 @@ function KnowledgeGapFlow() {
           )}
 
           {stage === "answer" && (
-            <StageShell key="answer" label="Best available answer">
+            <StageShell key="answer" label="Best available answer" stage={stage}>
               <ApprovedAnswer />
             </StageShell>
           )}
 
           {stage === "gap" && (
-            <StageShell key="gap" label="Follow-up detail">
+            <StageShell key="gap" label="Follow-up detail" stage={stage}>
               <GapMessage />
             </StageShell>
           )}
@@ -343,19 +421,20 @@ function KnowledgeGapFlow() {
             <StageShell
               key="capture-flow"
               label={stage === "stack" ? "Awaiting Answer" : "Question captured"}
+              stage={stage}
             >
               <CaptureScene stage={stage} />
             </StageShell>
           )}
 
           {stage === "seal" && (
-            <StageShell key="seal" label="Confirmation">
+            <StageShell key="seal" label="Confirmation" stage={stage}>
               <GoldSeal />
             </StageShell>
           )}
 
           {stage === "thanks" && (
-            <StageShell key="thanks" label="Thank you">
+            <StageShell key="thanks" label="Thank you" stage={stage}>
               <GoldSeal />
               <h1 className="mt-7 text-balance text-3xl font-extrabold text-[#10255a]">Thank you, Aqui.</h1>
               <p className="mt-3 max-w-sm text-base leading-relaxed text-[#5c6780]">
@@ -365,7 +444,7 @@ function KnowledgeGapFlow() {
           )}
 
           {stage === "notify" && (
-            <StageShell key="notify" label="Updates">
+            <StageShell key="notify" label="Updates" stage={stage}>
               <GoldSeal />
               <h1 className="mt-7 max-w-lg text-balance text-3xl font-extrabold leading-tight text-[#10255a]">
                 We{"\u2019"}ll let you know when the answer is ready.
