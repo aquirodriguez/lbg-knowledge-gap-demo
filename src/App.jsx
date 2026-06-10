@@ -815,6 +815,175 @@ function NotificationState() {
   );
 }
 
+function HeroObjectReview() {
+  return (
+    <main className="relative z-10 min-h-screen overflow-hidden px-4 py-6 text-[#10255a]">
+      <section className="mx-auto flex min-h-[calc(100vh-48px)] w-full max-w-[1180px] flex-col rounded-[38px] border border-white/78 bg-white/42 p-5 shadow-[0_30px_90px_rgba(45,40,31,0.12),inset_0_1px_0_rgba(255,255,255,0.9)] backdrop-blur-2xl sm:p-7">
+        <div className="mb-5 flex items-center justify-between gap-4">
+          <LbgMark />
+          <div className="rounded-full border border-white/76 bg-white/60 px-4 py-2 text-xs font-extrabold uppercase tracking-[0.12em] text-[#8a6a24] shadow-[inset_0_1px_0_rgba(255,255,255,0.85)]">
+            Hero Object Review
+          </div>
+        </div>
+        <div className="grid flex-1 grid-cols-1 gap-4 lg:grid-cols-3">
+          <HeroObjectTile title="Captured Question" subtitle="Glass card lifted above a layered capture base">
+            <CapturedObjectStill />
+          </HeroObjectTile>
+          <HeroObjectTile title="Light Path" subtitle="Directional champagne trail from base to queue">
+            <TrailObjectStill />
+          </HeroObjectTile>
+          <HeroObjectTile title="Review Queue" subtitle="Layered glass tray receiving the question">
+            <QueueObjectStill />
+          </HeroObjectTile>
+          <HeroObjectTile title="Confirmation Chamber" subtitle="Glass box with accepted check rising inside">
+            <ConfirmationObjectStill />
+          </HeroObjectTile>
+          <HeroObjectTile title="Stamped Seal" subtitle="Gold medallion payoff for the thank-you moment">
+            <div className="scale-[0.82]">
+              <SealMedallion />
+            </div>
+          </HeroObjectTile>
+          <HeroObjectTile title="Notification Bubble" subtitle="Bell protected inside liquid glass">
+            <div className="scale-[0.92]">
+              <BellBubble />
+            </div>
+          </HeroObjectTile>
+        </div>
+      </section>
+    </main>
+  );
+}
+
+function HeroObjectTile({ children, title, subtitle }) {
+  return (
+    <div className="relative flex min-h-[330px] flex-col overflow-hidden rounded-[30px] border border-white/76 bg-white/44 p-4 shadow-[0_20px_54px_rgba(42,38,31,0.09),inset_0_1px_0_rgba(255,255,255,0.9)] backdrop-blur-2xl">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_30%,rgba(255,255,255,0.65),transparent_32%),radial-gradient(circle_at_52%_76%,rgba(239,196,91,0.14),transparent_38%)]" />
+      <div className="relative flex min-h-0 flex-1 items-center justify-center rounded-[24px] border border-white/46 bg-white/16">
+        {children}
+      </div>
+      <div className="relative pt-4 text-center">
+        <h2 className="text-lg font-extrabold tracking-tight text-[#10255a]">{title}</h2>
+        <p className="mt-1 text-xs font-semibold leading-relaxed text-[#667088]">{subtitle}</p>
+      </div>
+    </div>
+  );
+}
+
+function CapturedObjectStill() {
+  return (
+    <div className="relative h-[250px] w-full">
+      <div className="absolute left-1/2 top-[54%] w-[330px] max-w-[84%] -translate-x-1/2 -translate-y-1/2">
+        <GlowPedestal />
+      </div>
+      <div className="absolute left-1/2 top-[32%] -translate-x-1/2 -translate-y-1/2">
+        <GlassQuestionCard />
+      </div>
+      <MiniSparkles />
+    </div>
+  );
+}
+
+function TrailObjectStill() {
+  return (
+    <div className="relative h-[250px] w-full overflow-hidden">
+      <div className="absolute left-[25%] top-[57%] w-[260px] -translate-x-1/2 -translate-y-1/2 opacity-90">
+        <GlowPedestal />
+      </div>
+      <svg className="absolute inset-0 h-full w-full overflow-visible" fill="none" viewBox="0 0 360 250">
+        <path d="M86 166C129 119 166 151 204 105C242 59 286 70 325 103" stroke="rgba(239,196,91,0.18)" strokeLinecap="round" strokeWidth="34" />
+        <path d="M86 166C129 119 166 151 204 105C242 59 286 70 325 103" stroke="url(#reviewTrail)" strokeLinecap="round" strokeWidth="7" />
+        <defs>
+          <linearGradient id="reviewTrail" x1="86" x2="325" y1="166" y2="103">
+            <stop stopColor="#ffffff" stopOpacity="0.18" />
+            <stop offset="0.42" stopColor="#f2ca65" stopOpacity="1" />
+            <stop offset="1" stopColor="#fff4c2" stopOpacity="0.24" />
+          </linearGradient>
+        </defs>
+      </svg>
+      <div className="absolute left-[73%] top-[38%] -translate-x-1/2 -translate-y-1/2 scale-[0.76]">
+        <GlassQuestionCard />
+      </div>
+      <MiniSparkles />
+    </div>
+  );
+}
+
+function QueueObjectStill() {
+  return (
+    <div className="relative h-[250px] w-full">
+      <div className="absolute left-1/2 top-[50%] w-[260px] -translate-x-1/2 -translate-y-1/2">
+        <StaticQueueTray />
+      </div>
+      <MiniSparkles />
+    </div>
+  );
+}
+
+function StaticQueueTray() {
+  return (
+    <div className="relative">
+      <div className="absolute inset-x-8 top-[72%] h-20 rounded-full bg-[#efc45b]/40 blur-2xl" />
+      <div className="relative overflow-hidden rounded-[30px] border border-white/84 bg-white/50 p-5 shadow-[0_30px_76px_rgba(42,40,33,0.14),inset_0_1px_0_rgba(255,255,255,0.94),inset_0_-20px_45px_rgba(239,196,91,0.12)] backdrop-blur-2xl">
+        <div className="absolute inset-x-6 top-2 h-8 rounded-full bg-white/38 blur-sm" />
+        <div className="mb-4 flex items-center justify-between text-left">
+          <div>
+            <p className="text-[13px] font-extrabold text-[#10255a]">Review Queue</p>
+            <p className="text-[11px] font-semibold text-[#73809a]">New questions</p>
+          </div>
+          <span className="grid h-9 w-9 place-items-center rounded-full border border-[#efd58f] bg-[#fff7df] text-[#b87a14]">
+            <ClockGlyph />
+          </span>
+        </div>
+        <div className="relative h-36">
+          <div className="absolute bottom-0 left-9 right-9 h-12 rounded-2xl border border-[#f0d282]/70 bg-[#f7d477]/38 shadow-[0_16px_38px_rgba(211,150,35,0.18)]" />
+          <div className="absolute bottom-5 left-5 right-5 h-16 rounded-2xl border border-white/76 bg-white/56 shadow-[0_18px_40px_rgba(34,42,62,0.1)]" />
+          <div className="absolute bottom-11 left-0 right-0 rotate-[-1deg] rounded-2xl border border-white/88 bg-white/78 p-4 text-left shadow-[0_18px_44px_rgba(34,42,62,0.13),inset_0_1px_0_rgba(255,255,255,0.9)]">
+            <p className="mb-2 text-[10px] font-extrabold uppercase tracking-[0.12em] text-[#b87a14]">New Question</p>
+            <p className="text-[12px] font-extrabold leading-snug text-[#10255a]">{FOLLOW_UP}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function ConfirmationObjectStill() {
+  return (
+    <div className="relative h-[250px] w-full">
+      <div className="absolute left-1/2 top-[62%] w-[320px] max-w-[86%] -translate-x-1/2 -translate-y-1/2">
+        <GlowPedestal />
+      </div>
+      <div className="absolute left-1/2 top-[43%] h-[150px] w-[190px] -translate-x-1/2 -translate-y-1/2">
+        <div className="absolute inset-0 rounded-[34px] border border-white/82 bg-white/34 shadow-[0_34px_92px_rgba(215,156,44,0.22),inset_0_1px_0_rgba(255,255,255,0.92),inset_0_-24px_48px_rgba(239,196,91,0.12)] backdrop-blur-2xl" />
+        <div className="absolute inset-x-5 bottom-0 h-[54%] rounded-[28px] border border-[#f0d282]/74 bg-[#f6cf71]/22" />
+        <div className="absolute inset-x-6 top-5 h-10 rounded-full bg-white/38 blur-sm" />
+        <div className="absolute left-5 top-7 h-[70%] w-4 rounded-full bg-white/28 blur-sm" />
+        <div className="absolute right-5 top-7 h-[70%] w-4 rounded-full bg-[#f6d36e]/12 blur-sm" />
+        <div className="absolute left-1/2 top-1/2 grid h-24 w-24 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border border-[#f1cf76]/84 bg-[radial-gradient(circle_at_35%_22%,rgba(255,255,255,0.84),rgba(255,248,220,0.55)_42%,rgba(239,196,91,0.28))] text-[#d89c25] shadow-[0_20px_52px_rgba(211,148,31,0.26),inset_0_1px_0_rgba(255,255,255,0.84)]">
+          <CheckGlyph className="h-12 w-12" />
+        </div>
+      </div>
+      <MiniSparkles />
+    </div>
+  );
+}
+
+function MiniSparkles() {
+  return (
+    <div className="pointer-events-none absolute inset-0">
+      {Array.from({ length: 10 }).map((_, index) => (
+        <motion.span
+          animate={{ opacity: [0, 0.7, 0], y: [8, -18, -36], scale: [0.55, 1, 0.55] }}
+          className="absolute h-1.5 w-1.5 rounded-full bg-[#f2cf75] shadow-[0_0_14px_4px_rgba(239,196,91,0.2)]"
+          key={index}
+          style={{ left: `${18 + ((index * 47) % 66)}%`, top: `${32 + ((index * 31) % 42)}%` }}
+          transition={{ delay: index * 0.18, duration: 3.2 + (index % 3) * 0.35, ease: "easeInOut", repeat: Infinity }}
+        />
+      ))}
+    </div>
+  );
+}
+
 function KnowledgeGapDemo() {
   const [state, setState] = React.useState("ask");
   const sound = React.useMemo(() => createSoundDesign(), []);
@@ -957,10 +1126,13 @@ function createSoundDesign() {
 }
 
 export default function App() {
+  const showObjectReview =
+    typeof window !== "undefined" && new URLSearchParams(window.location.search).get("objects") === "1";
+
   return (
     <>
       <DayGlassBackground />
-      <KnowledgeGapDemo />
+      {showObjectReview ? <HeroObjectReview /> : <KnowledgeGapDemo />}
     </>
   );
 }
