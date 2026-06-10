@@ -498,9 +498,9 @@ function CapturedCardAnchor({ phase }) {
 function GlassQuestionCard() {
   return (
     <motion.div
-      animate={{ y: [0, -7, 0], rotate: [-2.5, -0.5, -2.5] }}
-      className="relative h-[158px] w-[128px] rounded-[30px] border border-white/90 bg-white/42 p-4 text-left shadow-[0_30px_62px_rgba(31,36,51,0.16),0_0_0_1px_rgba(239,211,142,0.22),inset_0_1px_0_rgba(255,255,255,0.98),inset_0_-24px_44px_rgba(239,196,91,0.12)] backdrop-blur-2xl"
-      transition={{ duration: 3.8, ease: "easeInOut", repeat: Infinity }}
+      animate={{ y: [0, -5, 0], rotate: [-1.2, 0.4, -1.2] }}
+      className="relative h-[154px] w-[136px] rounded-[30px] border border-white/90 bg-white/44 p-4 text-left shadow-[0_28px_58px_rgba(31,36,51,0.14),0_0_0_1px_rgba(239,211,142,0.2),inset_0_1px_0_rgba(255,255,255,0.98),inset_0_-24px_44px_rgba(239,196,91,0.1)] backdrop-blur-2xl"
+      transition={{ duration: 4.8, ease: "easeInOut", repeat: Infinity }}
     >
       <div className="absolute inset-0 rounded-[28px] bg-[linear-gradient(132deg,rgba(255,255,255,0.94),rgba(255,255,255,0.3)_42%,rgba(239,196,91,0.18)_74%,rgba(255,255,255,0.36))]" />
       <div className="absolute inset-[1px] rounded-[27px] border border-white/46" />
@@ -508,16 +508,20 @@ function GlassQuestionCard() {
       <div className="absolute left-3 top-5 h-[68%] w-3 rounded-full bg-white/44 blur-[2px]" />
       <div className="absolute right-3 top-8 h-[58%] w-2 rounded-full bg-[#f6d36e]/16 blur-[2px]" />
       <div className="absolute -bottom-6 left-4 right-4 h-10 rounded-full bg-[#d8a23a]/16 blur-xl" />
-      <div className="relative mb-3 flex items-center gap-2 text-[9px] font-extrabold uppercase tracking-[0.1em] text-[#9099aa]">
-        <span className="grid h-5 w-5 place-items-center rounded-md border border-white/80 bg-white/64 text-[#63708b] shadow-[inset_0_1px_0_rgba(255,255,255,0.86)]">
-          <QuestionGlyph className="h-3.5 w-3.5" />
+      <div className="relative mb-4 flex items-center gap-2 text-[8px] font-extrabold uppercase tracking-[0.13em] text-[#8c96aa]">
+        <span className="grid h-4 w-4 place-items-center rounded-md border border-white/80 bg-white/64 text-[#63708b] shadow-[inset_0_1px_0_rgba(255,255,255,0.86)]">
+          <QuestionGlyph className="h-3 w-3" />
         </span>
-        Your question
+        YOUR QUESTION
       </div>
-      <p className="relative text-[12px] font-extrabold leading-snug text-[#10255a]">{FOLLOW_UP}</p>
+      <p className="relative max-w-[92px] text-[13px] font-extrabold leading-[1.22] text-[#10255a]">
+        What are the
+        <br />
+        key differences?
+      </p>
       <div className="relative mt-4 space-y-1.5">
-        <div className="h-1.5 w-20 rounded-full bg-[#9aa5ba]/18" />
-        <div className="h-1.5 w-14 rounded-full bg-[#9aa5ba]/14" />
+        <div className="h-1.5 w-16 rounded-full bg-[#9aa5ba]/16" />
+        <div className="h-1.5 w-11 rounded-full bg-[#9aa5ba]/12" />
       </div>
     </motion.div>
   );
@@ -724,13 +728,13 @@ function ParticleField({ active = 1 }) {
   );
 }
 
-function SealMedallion() {
+function SealMedallion({ settled = false }) {
   return (
     <div className="relative mx-auto grid h-60 w-60 place-items-center">
       <motion.div
-        animate={{ opacity: [0.16, 0.34, 0.18], scale: [0.9, 1.08, 0.96] }}
-        className="absolute h-48 w-48 rounded-full bg-[#e5aa35]/28 blur-3xl"
-        transition={{ duration: 3.8, ease: "easeInOut", repeat: Infinity }}
+        animate={{ opacity: [0.12, 0.28, 0.14], scale: [0.94, 1.05, 0.98] }}
+        className="absolute h-48 w-48 rounded-full bg-[#e5aa35]/22 blur-3xl"
+        transition={{ duration: 4.6, ease: "easeInOut", repeat: Infinity }}
       />
       <motion.div
         animate={{ opacity: [0, 0.5, 0], scale: [0.52, 1.28, 1.8] }}
@@ -738,10 +742,10 @@ function SealMedallion() {
         transition={{ delay: 0.42, duration: 1.05, ease: "easeOut" }}
       />
       <motion.div
-        animate={{ opacity: 1, rotate: [-9, 1.8, 0], scale: [1.35, 0.82, 1.045, 1], y: [-138, 22, -4, 0] }}
-        className="relative grid h-40 w-40 place-items-center rounded-full bg-[conic-gradient(from_20deg,#9f650e,#fff2bd,#d99d29,#fff8d5,#bd7b12,#f5ce66,#9f650e)] p-2 shadow-[0_24px_58px_rgba(198,137,26,0.34),0_0_0_1px_rgba(255,255,255,0.44),inset_0_1px_0_rgba(255,255,255,0.72)]"
-        initial={{ opacity: 0, rotate: -8, scale: 1.2, y: -126 }}
-        transition={{ duration: 0.98, ease: [0.16, 1, 0.3, 1], times: [0, 0.48, 0.75, 1] }}
+        animate={settled ? { opacity: 1, rotate: [0, 1.2, 0], scale: [1, 1.015, 1], y: [0, -2, 0] } : { opacity: 1, rotate: [-9, 1.8, 0], scale: [1.35, 0.82, 1.045, 1], y: [-138, 22, -4, 0] }}
+        className="relative grid h-40 w-40 place-items-center rounded-full bg-[conic-gradient(from_20deg,#9f650e,#fff2bd,#d99d29,#fff8d5,#bd7b12,#f5ce66,#9f650e)] p-2 shadow-[0_22px_52px_rgba(198,137,26,0.28),0_0_0_1px_rgba(255,255,255,0.44),inset_0_1px_0_rgba(255,255,255,0.72)]"
+        initial={settled ? false : { opacity: 0, rotate: -8, scale: 1.2, y: -126 }}
+        transition={settled ? { duration: 4.8, ease: "easeInOut", repeat: Infinity } : { duration: 0.98, ease: [0.16, 1, 0.3, 1], times: [0, 0.48, 0.75, 1] }}
       >
         <div className="absolute inset-1 rounded-full border border-[#fff6c7]/60" />
         <div className="absolute inset-3 rounded-full border border-[#9d6811]/22" />
@@ -794,20 +798,21 @@ function BellBubble() {
   return (
     <div className="relative mx-auto grid h-56 w-56 place-items-center">
       <motion.div
-        animate={{ opacity: [0.18, 0.42, 0.2], scale: [0.86, 1.08, 0.96] }}
-        className="absolute h-44 w-44 rounded-full bg-[#efc45b]/20 blur-3xl"
-        transition={{ duration: 3.4, ease: "easeInOut", repeat: Infinity }}
+        animate={{ opacity: [0.14, 0.34, 0.17], scale: [0.9, 1.06, 0.96] }}
+        className="absolute h-44 w-44 rounded-full bg-[#efc45b]/18 blur-3xl"
+        transition={{ duration: 4.2, ease: "easeInOut", repeat: Infinity }}
       />
       <motion.div
-        animate={{ scale: [0.9, 1.06, 1], opacity: 1 }}
-        className="relative grid h-40 w-40 place-items-center rounded-full border border-white/86 bg-white/36 shadow-[0_28px_66px_rgba(42,40,33,0.12),0_0_0_1px_rgba(239,211,142,0.2),inset_0_1px_0_rgba(255,255,255,0.98),inset_0_-20px_42px_rgba(239,196,91,0.08)] backdrop-blur-2xl"
+        animate={{ scale: [0.96, 1.025, 1], opacity: 1 }}
+        className="relative grid h-40 w-40 place-items-center rounded-full border border-white/88 bg-white/34 shadow-[0_28px_66px_rgba(42,40,33,0.12),0_0_0_1px_rgba(239,211,142,0.18),inset_0_1px_0_rgba(255,255,255,0.98),inset_0_-22px_42px_rgba(239,196,91,0.09)] backdrop-blur-2xl"
         initial={{ scale: 0.86, opacity: 0 }}
         transition={{ duration: 0.72, ease: [0.22, 1, 0.36, 1] }}
       >
-        <div className="absolute inset-2 rounded-full border border-white/58 bg-[radial-gradient(circle_at_35%_20%,rgba(255,255,255,0.88),transparent_34%),radial-gradient(circle_at_50%_80%,rgba(239,196,91,0.18),transparent_46%),rgba(255,255,255,0.14)]" />
-        <div className="absolute left-8 top-5 h-9 w-16 -rotate-12 rounded-full bg-white/54 blur-sm" />
-        <div className="absolute bottom-6 right-7 h-12 w-5 rounded-full bg-[#f6d36e]/14 blur-sm" />
+        <div className="absolute inset-2 rounded-full border border-white/62 bg-[radial-gradient(circle_at_35%_20%,rgba(255,255,255,0.9),transparent_34%),radial-gradient(circle_at_50%_80%,rgba(239,196,91,0.16),transparent_46%),rgba(255,255,255,0.14)]" />
+        <div className="absolute left-8 top-5 h-9 w-16 -rotate-12 rounded-full bg-white/58 blur-sm" />
+        <div className="absolute bottom-6 right-7 h-12 w-5 rounded-full bg-[#f6d36e]/12 blur-sm" />
         <div className="absolute inset-[18px] rounded-full border border-[#e8edf7]/60" />
+        <div className="absolute inset-[34px] rounded-full border border-white/38 bg-white/10" />
         <motion.div
           animate={{ rotate: [0, -7, 6, -4, 3, 0], y: [0, -2, 0] }}
           className="relative text-[#d99b20]"
@@ -818,7 +823,7 @@ function BellBubble() {
       </motion.div>
       <motion.span
         animate={{ opacity: 1, scale: [0.6, 1.12, 1], y: [8, -2, 0] }}
-        className="absolute right-8 top-8 grid h-9 w-9 place-items-center rounded-full border border-white/82 bg-[#efbd4d] text-sm font-extrabold text-white shadow-[0_12px_24px_rgba(211,148,31,0.25)]"
+        className="absolute right-7 top-8 grid h-9 w-9 place-items-center rounded-full border border-white/86 bg-[#efbd4d] text-sm font-extrabold text-white shadow-[0_12px_24px_rgba(211,148,31,0.23),inset_0_1px_0_rgba(255,255,255,0.56)]"
         initial={{ opacity: 0, scale: 0.6, y: 8 }}
         transition={{ delay: 0.42, duration: 0.5, ease: "easeOut" }}
       >
@@ -874,7 +879,7 @@ function HeroObjectReview() {
           </HeroObjectTile>
           <HeroObjectTile title="Stamped Seal" subtitle="Gold medallion payoff for the thank-you moment">
             <div className="scale-[0.82]">
-              <SealMedallion />
+              <SealMedallion settled />
             </div>
           </HeroObjectTile>
           <HeroObjectTile title="Notification Bubble" subtitle="Bell protected inside liquid glass">
@@ -920,24 +925,28 @@ function CapturedObjectStill() {
 function TrailObjectStill() {
   return (
     <div className="relative h-[250px] w-full overflow-hidden">
-      <div className="absolute left-[25%] top-[62%] w-[270px] -translate-x-1/2 -translate-y-1/2 opacity-100">
+      <div className="absolute left-[24%] top-[63%] w-[270px] -translate-x-1/2 -translate-y-1/2 opacity-100">
         <GlowPedestal />
       </div>
       <svg className="absolute inset-0 h-full w-full overflow-visible" fill="none" viewBox="0 0 360 250">
-        <path d="M54 172C96 134 132 154 168 126C213 91 242 72 316 105" stroke="rgba(255,255,255,0.42)" strokeLinecap="round" strokeWidth="42" />
-        <path d="M54 172C96 134 132 154 168 126C213 91 242 72 316 105" stroke="rgba(239,196,91,0.28)" strokeLinecap="round" strokeWidth="26" />
-        <path d="M54 172C96 134 132 154 168 126C213 91 242 72 316 105" stroke="url(#reviewTrail)" strokeLinecap="round" strokeWidth="8" />
-        <path d="M77 188C124 153 151 170 190 133C229 96 255 96 296 121" stroke="rgba(255,250,225,0.52)" strokeLinecap="round" strokeWidth="3" />
-        <path d="M72 156C116 118 148 136 184 108C221 80 250 75 300 91" stroke="rgba(255,255,255,0.38)" strokeLinecap="round" strokeWidth="4" />
+        <path d="M47 174C94 134 132 155 173 124C215 92 252 77 317 104" stroke="rgba(255,255,255,0.36)" strokeLinecap="round" strokeWidth="34" />
+        <path d="M47 174C94 134 132 155 173 124C215 92 252 77 317 104" stroke="rgba(239,196,91,0.2)" strokeLinecap="round" strokeWidth="20" />
+        <path d="M50 174C98 136 136 154 176 124C216 94 254 80 315 104" stroke="url(#reviewTrail)" strokeLinecap="round" strokeWidth="7" />
+        <path d="M74 187C123 151 156 166 195 133C232 102 260 99 298 120" stroke="rgba(255,250,225,0.48)" strokeLinecap="round" strokeWidth="2.8" />
+        <path d="M76 156C118 124 151 137 186 109C222 82 252 77 299 91" stroke="rgba(255,255,255,0.34)" strokeLinecap="round" strokeWidth="3.5" />
+        <circle cx="93" cy="147" fill="rgba(246,211,110,0.55)" r="2.2" />
+        <circle cx="184" cy="120" fill="rgba(246,211,110,0.52)" r="2" />
+        <circle cx="263" cy="91" fill="rgba(255,255,255,0.58)" r="1.8" />
         <defs>
-          <linearGradient id="reviewTrail" x1="54" x2="316" y1="172" y2="105">
-            <stop stopColor="#ffffff" stopOpacity="0.3" />
-            <stop offset="0.42" stopColor="#f2ca65" stopOpacity="1" />
-            <stop offset="1" stopColor="#fff4c2" stopOpacity="0.42" />
+          <linearGradient id="reviewTrail" x1="50" x2="315" y1="174" y2="104">
+            <stop stopColor="#ffffff" stopOpacity="0.18" />
+            <stop offset="0.22" stopColor="#fff4c2" stopOpacity="0.86" />
+            <stop offset="0.58" stopColor="#f2ca65" stopOpacity="0.94" />
+            <stop offset="1" stopColor="#fff8d8" stopOpacity="0.34" />
           </linearGradient>
         </defs>
       </svg>
-      <div className="absolute left-[73%] top-[38%] -translate-x-1/2 -translate-y-1/2 scale-[0.76]">
+      <div className="absolute left-[72%] top-[38%] -translate-x-1/2 -translate-y-1/2 scale-[0.76]">
         <GlassQuestionCard />
       </div>
       <MiniSparkles />
@@ -975,13 +984,17 @@ function StaticQueueTray() {
           </span>
         </div>
         <div className="relative h-40">
-          <div className="absolute bottom-0 left-8 right-8 h-14 rounded-[20px] border border-[#f0d282]/72 bg-[linear-gradient(180deg,rgba(255,247,214,0.58),rgba(239,196,91,0.26))] shadow-[0_18px_42px_rgba(211,150,35,0.2),inset_0_1px_0_rgba(255,255,255,0.68)]" />
-          <div className="absolute bottom-6 left-5 right-5 h-16 rounded-[20px] border border-white/76 bg-white/44 shadow-[0_18px_40px_rgba(34,42,62,0.1),inset_0_1px_0_rgba(255,255,255,0.78)] backdrop-blur-xl" />
-          <div className="absolute bottom-[54px] left-3 right-3 h-14 rounded-[20px] border border-white/72 bg-white/38 shadow-[0_12px_34px_rgba(34,42,62,0.07)]" />
-          <div className="absolute bottom-[76px] left-0 right-0 rotate-[-1deg] rounded-[20px] border border-white/90 bg-white/74 p-4 text-left shadow-[0_20px_48px_rgba(34,42,62,0.15),0_0_0_1px_rgba(239,211,142,0.16),inset_0_1px_0_rgba(255,255,255,0.94),inset_0_-14px_24px_rgba(239,196,91,0.08)] backdrop-blur-xl">
+          <div className="absolute bottom-0 left-8 right-8 h-14 rounded-[20px] border border-[#f0d282]/68 bg-[linear-gradient(180deg,rgba(255,247,214,0.54),rgba(239,196,91,0.24))] shadow-[0_18px_42px_rgba(211,150,35,0.18),inset_0_1px_0_rgba(255,255,255,0.68)]" />
+          <div className="absolute bottom-6 left-5 right-5 h-16 rounded-[20px] border border-white/76 bg-white/42 shadow-[0_18px_40px_rgba(34,42,62,0.09),inset_0_1px_0_rgba(255,255,255,0.78)] backdrop-blur-xl" />
+          <div className="absolute bottom-[54px] left-3 right-3 h-14 rounded-[20px] border border-white/72 bg-white/34 shadow-[0_12px_34px_rgba(34,42,62,0.07)]" />
+          <div className="absolute bottom-[72px] left-1 right-1 rotate-[-0.6deg] rounded-[20px] border border-white/90 bg-white/74 p-4 text-left shadow-[0_20px_48px_rgba(34,42,62,0.14),0_0_0_1px_rgba(239,211,142,0.14),inset_0_1px_0_rgba(255,255,255,0.94),inset_0_-14px_24px_rgba(239,196,91,0.08)] backdrop-blur-xl">
             <div className="absolute inset-x-4 top-2 h-4 rounded-full bg-white/42 blur-sm" />
             <p className="mb-2 text-[10px] font-extrabold uppercase tracking-[0.12em] text-[#b87a14]">New Question</p>
-            <p className="text-[12px] font-extrabold leading-snug text-[#10255a]">{FOLLOW_UP}</p>
+            <p className="text-[12px] font-extrabold leading-snug text-[#10255a]">
+              What are the key
+              <br />
+              differences?
+            </p>
           </div>
         </div>
       </div>
@@ -1006,10 +1019,10 @@ function ConfirmationObjectStill() {
 function GlassConfirmationBox({ showCheck = true }) {
   return (
     <div className="absolute inset-0">
-      <div className="absolute inset-x-5 bottom-2 h-20 rounded-[26px] border border-[#f0d282]/68 bg-[linear-gradient(180deg,rgba(255,250,228,0.52),rgba(239,196,91,0.22))] shadow-[0_22px_48px_rgba(211,148,31,0.18),inset_0_1px_0_rgba(255,255,255,0.7)]" />
+      <div className="absolute inset-x-5 bottom-2 h-20 rounded-[26px] border border-[#f0d282]/62 bg-[linear-gradient(180deg,rgba(255,250,228,0.5),rgba(239,196,91,0.2))] shadow-[0_22px_48px_rgba(211,148,31,0.16),inset_0_1px_0_rgba(255,255,255,0.7)]" />
       <div className="absolute left-7 right-7 bottom-3 h-10 rounded-[20px] border border-[#efc45b]/42 bg-[#efc45b]/14" />
-      <div className="absolute inset-0 rounded-[36px] border border-white/86 bg-white/30 shadow-[0_34px_92px_rgba(215,156,44,0.22),0_0_0_1px_rgba(239,211,142,0.18),inset_0_1px_0_rgba(255,255,255,0.96),inset_0_-28px_54px_rgba(239,196,91,0.13)] backdrop-blur-2xl" />
-      <div className="absolute inset-[1px] rounded-[35px] bg-[linear-gradient(135deg,rgba(255,255,255,0.62),transparent_36%,rgba(239,196,91,0.12)_76%,rgba(255,255,255,0.24))]" />
+      <div className="absolute inset-0 rounded-[36px] border border-white/88 bg-white/28 shadow-[0_32px_86px_rgba(215,156,44,0.2),0_0_0_1px_rgba(239,211,142,0.16),inset_0_1px_0_rgba(255,255,255,0.96),inset_0_-28px_54px_rgba(239,196,91,0.12)] backdrop-blur-2xl" />
+      <div className="absolute inset-[1px] rounded-[35px] bg-[linear-gradient(135deg,rgba(255,255,255,0.68),transparent_34%,rgba(239,196,91,0.1)_76%,rgba(255,255,255,0.24))]" />
       <svg className="absolute inset-0 h-full w-full overflow-visible" fill="none" viewBox="0 0 210 166">
         <path d="M34 112 72 86h68l36 26" stroke="rgba(255,255,255,0.62)" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" />
         <path d="M34 112v26c36 14 107 14 142 0v-26" stroke="rgba(239,196,91,0.28)" strokeLinecap="round" strokeWidth="2" />
@@ -1019,7 +1032,7 @@ function GlassConfirmationBox({ showCheck = true }) {
       <div className="absolute inset-x-7 top-5 h-12 rounded-full bg-white/42 blur-sm" />
       <div className="absolute left-5 top-8 h-[66%] w-5 rounded-full bg-white/30 blur-sm" />
       <div className="absolute right-6 top-10 h-[54%] w-3 rounded-full bg-[#f6d36e]/16 blur-sm" />
-      <div className="absolute left-1/2 top-[54%] h-28 w-28 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#efc45b]/18 blur-2xl" />
+      <div className="absolute left-1/2 top-[54%] h-28 w-28 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#efc45b]/16 blur-2xl" />
       {showCheck && (
         <div className="absolute left-1/2 top-[50%] grid h-28 w-28 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border border-[#f1cf76]/84 bg-[radial-gradient(circle_at_35%_22%,rgba(255,255,255,0.9),rgba(255,248,220,0.62)_42%,rgba(239,196,91,0.3))] text-[#d89c25] shadow-[0_22px_54px_rgba(211,148,31,0.28),inset_0_1px_0_rgba(255,255,255,0.88)]">
           <div className="absolute inset-3 rounded-full border border-white/44" />
