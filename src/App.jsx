@@ -499,14 +499,17 @@ function GlassQuestionCard() {
   return (
     <motion.div
       animate={{ y: [0, -7, 0], rotate: [-2.5, -0.5, -2.5] }}
-      className="relative h-[150px] w-[126px] rounded-[28px] border border-white/86 bg-white/50 p-4 text-left shadow-[0_26px_58px_rgba(31,36,51,0.15),inset_0_1px_0_rgba(255,255,255,0.94),inset_0_-18px_36px_rgba(239,196,91,0.09)] backdrop-blur-2xl"
+      className="relative h-[158px] w-[128px] rounded-[30px] border border-white/90 bg-white/42 p-4 text-left shadow-[0_30px_62px_rgba(31,36,51,0.16),0_0_0_1px_rgba(239,211,142,0.22),inset_0_1px_0_rgba(255,255,255,0.98),inset_0_-24px_44px_rgba(239,196,91,0.12)] backdrop-blur-2xl"
       transition={{ duration: 3.8, ease: "easeInOut", repeat: Infinity }}
     >
-      <div className="absolute inset-0 rounded-[26px] bg-[linear-gradient(138deg,rgba(255,255,255,0.82),transparent_44%,rgba(239,196,91,0.17))]" />
-      <div className="absolute inset-x-5 top-2 h-6 rounded-full bg-white/36 blur-sm" />
-      <div className="absolute -bottom-5 left-5 right-5 h-8 rounded-full bg-[#d8a23a]/12 blur-xl" />
+      <div className="absolute inset-0 rounded-[28px] bg-[linear-gradient(132deg,rgba(255,255,255,0.94),rgba(255,255,255,0.3)_42%,rgba(239,196,91,0.18)_74%,rgba(255,255,255,0.36))]" />
+      <div className="absolute inset-[1px] rounded-[27px] border border-white/46" />
+      <div className="absolute left-4 right-5 top-3 h-7 rounded-full bg-white/50 blur-[2px]" />
+      <div className="absolute left-3 top-5 h-[68%] w-3 rounded-full bg-white/44 blur-[2px]" />
+      <div className="absolute right-3 top-8 h-[58%] w-2 rounded-full bg-[#f6d36e]/16 blur-[2px]" />
+      <div className="absolute -bottom-6 left-4 right-4 h-10 rounded-full bg-[#d8a23a]/16 blur-xl" />
       <div className="relative mb-3 flex items-center gap-2 text-[9px] font-extrabold uppercase tracking-[0.1em] text-[#9099aa]">
-        <span className="grid h-5 w-5 place-items-center rounded-md border border-white/74 bg-white/62 text-[#63708b]">
+        <span className="grid h-5 w-5 place-items-center rounded-md border border-white/80 bg-white/64 text-[#63708b] shadow-[inset_0_1px_0_rgba(255,255,255,0.86)]">
           <QuestionGlyph className="h-3.5 w-3.5" />
         </span>
         Your question
@@ -522,19 +525,41 @@ function GlassQuestionCard() {
 
 function GlowPedestal() {
   return (
-    <div className="relative h-[150px] w-full">
+    <div className="relative h-[156px] w-full">
       <motion.div
-        animate={{ opacity: [0.3, 0.68, 0.36], scale: [0.92, 1.08, 0.96] }}
-        className="absolute inset-x-[18%] bottom-[5%] h-[44%] rounded-[999px] bg-[#e8b13b]/34 blur-2xl"
+        animate={{ opacity: [0.34, 0.72, 0.38], scale: [0.92, 1.08, 0.96] }}
+        className="absolute inset-x-[16%] bottom-[0%] h-[48%] rounded-[999px] bg-[#e8b13b]/34 blur-2xl"
         transition={{ duration: 3, ease: "easeInOut", repeat: Infinity }}
       />
-      <motion.div
-        animate={{ scale: [0.97, 1.025, 0.97], opacity: [0.82, 1, 0.84] }}
-        className="absolute inset-x-[8%] bottom-[18%] h-[47%] rounded-[999px] border border-[#f3d583]/82 bg-[radial-gradient(ellipse_at_center,rgba(255,250,225,0.95),rgba(239,196,91,0.34)_42%,rgba(255,255,255,0.22)_68%,rgba(255,255,255,0.05))] shadow-[0_24px_68px_rgba(213,151,34,0.22),inset_0_1px_0_rgba(255,255,255,0.84)]"
-        transition={{ duration: 3.2, ease: "easeInOut", repeat: Infinity }}
-      />
-      <div className="absolute inset-x-[15%] bottom-[30%] h-[28%] rounded-[999px] border border-white/70 bg-white/28 shadow-[inset_0_1px_0_rgba(255,255,255,0.72)]" />
-      <div className="absolute inset-x-[26%] bottom-[42%] h-[15%] rounded-[999px] bg-white/46 blur-[1px]" />
+      <div className="absolute inset-x-[9%] bottom-[36%] h-[40%] rounded-[999px] border border-[#ecc45e]/54 bg-[#f3c85f]/18 shadow-[0_18px_46px_rgba(211,150,35,0.2),inset_0_1px_0_rgba(255,255,255,0.8)]" />
+      <div className="absolute inset-x-[14%] bottom-[42%] h-[28%] rounded-[999px] border border-white/82 bg-white/32 shadow-[inset_0_1px_0_rgba(255,255,255,0.86)]" />
+      <div className="absolute inset-x-[27%] bottom-[51%] h-[13%] rounded-[999px] bg-white/58 blur-[1px]" />
+      <motion.div animate={{ scale: [0.97, 1.025, 0.97], opacity: [0.86, 1, 0.88] }} transition={{ duration: 3.2, ease: "easeInOut", repeat: Infinity }}>
+        <svg className="absolute inset-x-0 bottom-[12%] h-[76%] w-full overflow-visible" fill="none" viewBox="0 0 360 150">
+          <defs>
+            <radialGradient cx="50%" cy="45%" id="pedestalGlow" r="62%">
+              <stop stopColor="#fff8d8" />
+              <stop offset="0.42" stopColor="#f2c85f" stopOpacity="0.92" />
+              <stop offset="0.72" stopColor="#ffffff" stopOpacity="0.5" />
+              <stop offset="1" stopColor="#ffffff" stopOpacity="0.02" />
+            </radialGradient>
+            <linearGradient id="pedestalEdge" x1="58" x2="304" y1="46" y2="106">
+              <stop stopColor="#ffffff" stopOpacity="0.96" />
+              <stop offset="0.48" stopColor="#f4cf74" stopOpacity="0.7" />
+              <stop offset="1" stopColor="#ffffff" stopOpacity="0.82" />
+            </linearGradient>
+          </defs>
+          <ellipse cx="180" cy="98" fill="rgba(217,155,32,0.16)" rx="155" ry="48" />
+          <ellipse cx="180" cy="90" fill="url(#pedestalGlow)" rx="148" ry="47" />
+          <ellipse cx="180" cy="90" stroke="url(#pedestalEdge)" strokeWidth="4" rx="143" ry="43" />
+          <ellipse cx="180" cy="82" fill="rgba(255,255,255,0.42)" rx="116" ry="30" />
+          <ellipse cx="180" cy="77" stroke="rgba(255,255,255,0.86)" strokeWidth="2.4" rx="105" ry="25" />
+          <ellipse cx="180" cy="74" fill="rgba(255,255,255,0.48)" rx="76" ry="15" />
+          <ellipse cx="180" cy="76" stroke="rgba(217,155,32,0.24)" strokeWidth="1.4" rx="82" ry="18" />
+          <path d="M70 94c24 22 198 23 221 0" stroke="rgba(183,122,20,0.16)" strokeLinecap="round" strokeWidth="2" />
+          <path d="M102 58c40-17 114-18 154-1" stroke="rgba(255,255,255,0.74)" strokeLinecap="round" strokeWidth="5" />
+        </svg>
+      </motion.div>
       <motion.div
         animate={{ opacity: [0, 0.55, 0], scale: [0.65, 1.22, 1.65] }}
         className="absolute left-1/2 top-[48%] h-28 w-28 -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#efc45b]/38"
@@ -662,13 +687,10 @@ function ConfirmationChamber({ phase }) {
       </div>
       <motion.div
         animate={show ? { y: [22, -8, 0], rotate: [-2, 1, 0] } : {}}
-        className="absolute left-1/2 top-[43%] grid h-[58%] w-[43%] -translate-x-1/2 -translate-y-1/2 place-items-center rounded-[34px] border border-white/82 bg-white/34 shadow-[0_34px_92px_rgba(215,156,44,0.22),inset_0_1px_0_rgba(255,255,255,0.92),inset_0_-24px_48px_rgba(239,196,91,0.12)] backdrop-blur-2xl"
+        className="absolute left-1/2 top-[43%] h-[58%] w-[43%] -translate-x-1/2 -translate-y-1/2"
         transition={{ duration: 1.25, ease: [0.22, 1, 0.36, 1] }}
       >
-        <div className="absolute inset-x-5 bottom-0 h-[54%] rounded-[28px] border border-[#f0d282]/74 bg-[#f6cf71]/22" />
-        <div className="absolute inset-x-6 top-5 h-10 rounded-full bg-white/38 blur-sm" />
-        <div className="absolute left-5 top-7 h-[70%] w-4 rounded-full bg-white/28 blur-sm" />
-        <div className="absolute right-5 top-7 h-[70%] w-4 rounded-full bg-[#f6d36e]/12 blur-sm" />
+        <GlassConfirmationBox showCheck={false} />
         <motion.div
           animate={show ? { opacity: [0, 0.58, 0], scale: [0.8, 1.24, 1.58] } : {}}
           className="absolute h-32 w-32 rounded-full border border-[#f1cf76]/50"
@@ -676,7 +698,7 @@ function ConfirmationChamber({ phase }) {
         />
         <motion.div
           animate={show ? { opacity: 1, y: [34, -8, 0], scale: [0.64, 1.12, 1] } : {}}
-          className="relative grid h-28 w-28 place-items-center rounded-full border border-[#f1cf76]/84 bg-[radial-gradient(circle_at_35%_22%,rgba(255,255,255,0.84),rgba(255,248,220,0.55)_42%,rgba(239,196,91,0.28))] text-[#d89c25] shadow-[0_20px_52px_rgba(211,148,31,0.26),inset_0_1px_0_rgba(255,255,255,0.84)]"
+          className="relative mx-auto grid h-28 w-28 place-items-center rounded-full border border-[#f1cf76]/84 bg-[radial-gradient(circle_at_35%_22%,rgba(255,255,255,0.84),rgba(255,248,220,0.55)_42%,rgba(239,196,91,0.28))] text-[#d89c25] shadow-[0_20px_52px_rgba(211,148,31,0.26),inset_0_1px_0_rgba(255,255,255,0.84)]"
           transition={{ delay: 0.68, duration: 0.92, ease: [0.22, 1, 0.36, 1] }}
         >
           <CheckGlyph />
@@ -717,20 +739,29 @@ function SealMedallion() {
       />
       <motion.div
         animate={{ opacity: 1, rotate: [-9, 1.8, 0], scale: [1.35, 0.82, 1.045, 1], y: [-138, 22, -4, 0] }}
-        className="relative grid h-40 w-40 place-items-center rounded-full bg-[conic-gradient(from_20deg,#b97710,#fff1b6,#d99d29,#fff8d5,#bd7b12,#f5ce66,#b97710)] p-2 shadow-[0_22px_54px_rgba(198,137,26,0.3),inset_0_1px_0_rgba(255,255,255,0.68)]"
+        className="relative grid h-40 w-40 place-items-center rounded-full bg-[conic-gradient(from_20deg,#9f650e,#fff2bd,#d99d29,#fff8d5,#bd7b12,#f5ce66,#9f650e)] p-2 shadow-[0_24px_58px_rgba(198,137,26,0.34),0_0_0_1px_rgba(255,255,255,0.44),inset_0_1px_0_rgba(255,255,255,0.72)]"
         initial={{ opacity: 0, rotate: -8, scale: 1.2, y: -126 }}
         transition={{ duration: 0.98, ease: [0.16, 1, 0.3, 1], times: [0, 0.48, 0.75, 1] }}
       >
         <div className="absolute inset-1 rounded-full border border-[#fff6c7]/60" />
         <div className="absolute inset-3 rounded-full border border-[#9d6811]/22" />
+        {Array.from({ length: 36 }).map((_, index) => (
+          <span
+            className="absolute left-1/2 top-1/2 h-[78px] w-[6px] origin-bottom rounded-full bg-[#fff3be]/24"
+            key={`tooth-${index}`}
+            style={{ transform: `translate(-50%, -100%) rotate(${index * 10}deg)` }}
+          />
+        ))}
         {Array.from({ length: 24 }).map((_, index) => (
           <span
-            className="absolute left-1/2 top-1/2 h-[86px] w-[2px] origin-bottom rounded-full bg-white/18"
+            className="absolute left-1/2 top-1/2 h-[86px] w-[2px] origin-bottom rounded-full bg-white/20"
             key={index}
             style={{ transform: `translate(-50%, -100%) rotate(${index * 15}deg)` }}
           />
         ))}
-        <div className="relative grid h-full w-full place-items-center rounded-full border border-white/76 bg-[radial-gradient(circle_at_32%_22%,#fff9dd,#efbd4d_56%,#c78619)] text-white">
+        <div className="relative grid h-full w-full place-items-center rounded-full border border-white/76 bg-[radial-gradient(circle_at_30%_18%,#fffbe8,#f7d36b_38%,#dfaa32_66%,#b97710)] text-white shadow-[inset_0_4px_18px_rgba(255,255,255,0.5),inset_0_-16px_30px_rgba(143,88,8,0.2)]">
+          <div className="absolute inset-4 rounded-full border border-white/36" />
+          <div className="absolute left-8 top-6 h-8 w-12 rounded-full bg-white/34 blur-md" />
           <CheckGlyph className="h-16 w-16 drop-shadow" />
         </div>
       </motion.div>
@@ -769,11 +800,14 @@ function BellBubble() {
       />
       <motion.div
         animate={{ scale: [0.9, 1.06, 1], opacity: 1 }}
-        className="relative grid h-40 w-40 place-items-center rounded-full border border-white/80 bg-white/44 shadow-[0_26px_62px_rgba(42,40,33,0.1),inset_0_1px_0_rgba(255,255,255,0.92)] backdrop-blur-2xl"
+        className="relative grid h-40 w-40 place-items-center rounded-full border border-white/86 bg-white/36 shadow-[0_28px_66px_rgba(42,40,33,0.12),0_0_0_1px_rgba(239,211,142,0.2),inset_0_1px_0_rgba(255,255,255,0.98),inset_0_-20px_42px_rgba(239,196,91,0.08)] backdrop-blur-2xl"
         initial={{ scale: 0.86, opacity: 0 }}
         transition={{ duration: 0.72, ease: [0.22, 1, 0.36, 1] }}
       >
-        <div className="absolute inset-4 rounded-full border border-white/54 bg-[radial-gradient(circle_at_35%_20%,rgba(255,255,255,0.8),transparent_36%),rgba(255,255,255,0.16)]" />
+        <div className="absolute inset-2 rounded-full border border-white/58 bg-[radial-gradient(circle_at_35%_20%,rgba(255,255,255,0.88),transparent_34%),radial-gradient(circle_at_50%_80%,rgba(239,196,91,0.18),transparent_46%),rgba(255,255,255,0.14)]" />
+        <div className="absolute left-8 top-5 h-9 w-16 -rotate-12 rounded-full bg-white/54 blur-sm" />
+        <div className="absolute bottom-6 right-7 h-12 w-5 rounded-full bg-[#f6d36e]/14 blur-sm" />
+        <div className="absolute inset-[18px] rounded-full border border-[#e8edf7]/60" />
         <motion.div
           animate={{ rotate: [0, -7, 6, -4, 3, 0], y: [0, -2, 0] }}
           className="relative text-[#d99b20]"
@@ -825,7 +859,7 @@ function HeroObjectReview() {
             Hero Object Review
           </div>
         </div>
-        <div className="grid flex-1 grid-cols-1 gap-4 lg:grid-cols-3">
+        <div className="grid flex-1 grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
           <HeroObjectTile title="Captured Question" subtitle="Glass card lifted above a layered capture base">
             <CapturedObjectStill />
           </HeroObjectTile>
@@ -856,7 +890,7 @@ function HeroObjectReview() {
 
 function HeroObjectTile({ children, title, subtitle }) {
   return (
-    <div className="relative flex min-h-[330px] flex-col overflow-hidden rounded-[30px] border border-white/76 bg-white/44 p-4 shadow-[0_20px_54px_rgba(42,38,31,0.09),inset_0_1px_0_rgba(255,255,255,0.9)] backdrop-blur-2xl">
+    <div className="relative flex min-h-[390px] flex-col overflow-hidden rounded-[30px] border border-white/76 bg-white/44 p-4 shadow-[0_20px_54px_rgba(42,38,31,0.09),inset_0_1px_0_rgba(255,255,255,0.9)] backdrop-blur-2xl">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_30%,rgba(255,255,255,0.65),transparent_32%),radial-gradient(circle_at_52%_76%,rgba(239,196,91,0.14),transparent_38%)]" />
       <div className="relative flex min-h-0 flex-1 items-center justify-center rounded-[24px] border border-white/46 bg-white/16">
         {children}
@@ -872,10 +906,10 @@ function HeroObjectTile({ children, title, subtitle }) {
 function CapturedObjectStill() {
   return (
     <div className="relative h-[250px] w-full">
-      <div className="absolute left-1/2 top-[54%] w-[330px] max-w-[84%] -translate-x-1/2 -translate-y-1/2">
+      <div className="absolute left-1/2 top-[60%] w-[340px] max-w-[88%] -translate-x-1/2 -translate-y-1/2">
         <GlowPedestal />
       </div>
-      <div className="absolute left-1/2 top-[32%] -translate-x-1/2 -translate-y-1/2">
+      <div className="absolute left-1/2 top-[34%] -translate-x-1/2 -translate-y-1/2">
         <GlassQuestionCard />
       </div>
       <MiniSparkles />
@@ -886,17 +920,20 @@ function CapturedObjectStill() {
 function TrailObjectStill() {
   return (
     <div className="relative h-[250px] w-full overflow-hidden">
-      <div className="absolute left-[25%] top-[57%] w-[260px] -translate-x-1/2 -translate-y-1/2 opacity-90">
+      <div className="absolute left-[25%] top-[62%] w-[270px] -translate-x-1/2 -translate-y-1/2 opacity-100">
         <GlowPedestal />
       </div>
       <svg className="absolute inset-0 h-full w-full overflow-visible" fill="none" viewBox="0 0 360 250">
-        <path d="M86 166C129 119 166 151 204 105C242 59 286 70 325 103" stroke="rgba(239,196,91,0.18)" strokeLinecap="round" strokeWidth="34" />
-        <path d="M86 166C129 119 166 151 204 105C242 59 286 70 325 103" stroke="url(#reviewTrail)" strokeLinecap="round" strokeWidth="7" />
+        <path d="M54 172C96 134 132 154 168 126C213 91 242 72 316 105" stroke="rgba(255,255,255,0.42)" strokeLinecap="round" strokeWidth="42" />
+        <path d="M54 172C96 134 132 154 168 126C213 91 242 72 316 105" stroke="rgba(239,196,91,0.28)" strokeLinecap="round" strokeWidth="26" />
+        <path d="M54 172C96 134 132 154 168 126C213 91 242 72 316 105" stroke="url(#reviewTrail)" strokeLinecap="round" strokeWidth="8" />
+        <path d="M77 188C124 153 151 170 190 133C229 96 255 96 296 121" stroke="rgba(255,250,225,0.52)" strokeLinecap="round" strokeWidth="3" />
+        <path d="M72 156C116 118 148 136 184 108C221 80 250 75 300 91" stroke="rgba(255,255,255,0.38)" strokeLinecap="round" strokeWidth="4" />
         <defs>
-          <linearGradient id="reviewTrail" x1="86" x2="325" y1="166" y2="103">
-            <stop stopColor="#ffffff" stopOpacity="0.18" />
+          <linearGradient id="reviewTrail" x1="54" x2="316" y1="172" y2="105">
+            <stop stopColor="#ffffff" stopOpacity="0.3" />
             <stop offset="0.42" stopColor="#f2ca65" stopOpacity="1" />
-            <stop offset="1" stopColor="#fff4c2" stopOpacity="0.24" />
+            <stop offset="1" stopColor="#fff4c2" stopOpacity="0.42" />
           </linearGradient>
         </defs>
       </svg>
@@ -921,10 +958,13 @@ function QueueObjectStill() {
 
 function StaticQueueTray() {
   return (
-    <div className="relative">
-      <div className="absolute inset-x-8 top-[72%] h-20 rounded-full bg-[#efc45b]/40 blur-2xl" />
-      <div className="relative overflow-hidden rounded-[30px] border border-white/84 bg-white/50 p-5 shadow-[0_30px_76px_rgba(42,40,33,0.14),inset_0_1px_0_rgba(255,255,255,0.94),inset_0_-20px_45px_rgba(239,196,91,0.12)] backdrop-blur-2xl">
-        <div className="absolute inset-x-6 top-2 h-8 rounded-full bg-white/38 blur-sm" />
+    <div className="relative w-[286px]">
+      <div className="absolute inset-x-4 top-[72%] h-24 rounded-full bg-[#efc45b]/42 blur-2xl" />
+      <div className="absolute left-4 right-4 top-[79%] h-12 rounded-[999px] border border-[#efc45b]/42 bg-[#efc45b]/24 shadow-[0_22px_45px_rgba(211,150,35,0.16)]" />
+      <div className="relative overflow-hidden rounded-[32px] border border-white/86 bg-white/46 p-5 shadow-[0_34px_80px_rgba(42,40,33,0.15),0_0_0_1px_rgba(239,211,142,0.18),inset_0_1px_0_rgba(255,255,255,0.96),inset_0_-26px_50px_rgba(239,196,91,0.13)] backdrop-blur-2xl">
+        <div className="absolute inset-x-6 top-2 h-9 rounded-full bg-white/42 blur-sm" />
+        <div className="absolute left-4 top-8 h-[70%] w-4 rounded-full bg-white/26 blur-sm" />
+        <div className="absolute right-5 top-10 h-[56%] w-3 rounded-full bg-[#f4ca64]/12 blur-sm" />
         <div className="mb-4 flex items-center justify-between text-left">
           <div>
             <p className="text-[13px] font-extrabold text-[#10255a]">Review Queue</p>
@@ -934,10 +974,12 @@ function StaticQueueTray() {
             <ClockGlyph />
           </span>
         </div>
-        <div className="relative h-36">
-          <div className="absolute bottom-0 left-9 right-9 h-12 rounded-2xl border border-[#f0d282]/70 bg-[#f7d477]/38 shadow-[0_16px_38px_rgba(211,150,35,0.18)]" />
-          <div className="absolute bottom-5 left-5 right-5 h-16 rounded-2xl border border-white/76 bg-white/56 shadow-[0_18px_40px_rgba(34,42,62,0.1)]" />
-          <div className="absolute bottom-11 left-0 right-0 rotate-[-1deg] rounded-2xl border border-white/88 bg-white/78 p-4 text-left shadow-[0_18px_44px_rgba(34,42,62,0.13),inset_0_1px_0_rgba(255,255,255,0.9)]">
+        <div className="relative h-40">
+          <div className="absolute bottom-0 left-8 right-8 h-14 rounded-[20px] border border-[#f0d282]/72 bg-[linear-gradient(180deg,rgba(255,247,214,0.58),rgba(239,196,91,0.26))] shadow-[0_18px_42px_rgba(211,150,35,0.2),inset_0_1px_0_rgba(255,255,255,0.68)]" />
+          <div className="absolute bottom-6 left-5 right-5 h-16 rounded-[20px] border border-white/76 bg-white/44 shadow-[0_18px_40px_rgba(34,42,62,0.1),inset_0_1px_0_rgba(255,255,255,0.78)] backdrop-blur-xl" />
+          <div className="absolute bottom-[54px] left-3 right-3 h-14 rounded-[20px] border border-white/72 bg-white/38 shadow-[0_12px_34px_rgba(34,42,62,0.07)]" />
+          <div className="absolute bottom-[76px] left-0 right-0 rotate-[-1deg] rounded-[20px] border border-white/90 bg-white/74 p-4 text-left shadow-[0_20px_48px_rgba(34,42,62,0.15),0_0_0_1px_rgba(239,211,142,0.16),inset_0_1px_0_rgba(255,255,255,0.94),inset_0_-14px_24px_rgba(239,196,91,0.08)] backdrop-blur-xl">
+            <div className="absolute inset-x-4 top-2 h-4 rounded-full bg-white/42 blur-sm" />
             <p className="mb-2 text-[10px] font-extrabold uppercase tracking-[0.12em] text-[#b87a14]">New Question</p>
             <p className="text-[12px] font-extrabold leading-snug text-[#10255a]">{FOLLOW_UP}</p>
           </div>
@@ -953,17 +995,37 @@ function ConfirmationObjectStill() {
       <div className="absolute left-1/2 top-[62%] w-[320px] max-w-[86%] -translate-x-1/2 -translate-y-1/2">
         <GlowPedestal />
       </div>
-      <div className="absolute left-1/2 top-[43%] h-[150px] w-[190px] -translate-x-1/2 -translate-y-1/2">
-        <div className="absolute inset-0 rounded-[34px] border border-white/82 bg-white/34 shadow-[0_34px_92px_rgba(215,156,44,0.22),inset_0_1px_0_rgba(255,255,255,0.92),inset_0_-24px_48px_rgba(239,196,91,0.12)] backdrop-blur-2xl" />
-        <div className="absolute inset-x-5 bottom-0 h-[54%] rounded-[28px] border border-[#f0d282]/74 bg-[#f6cf71]/22" />
-        <div className="absolute inset-x-6 top-5 h-10 rounded-full bg-white/38 blur-sm" />
-        <div className="absolute left-5 top-7 h-[70%] w-4 rounded-full bg-white/28 blur-sm" />
-        <div className="absolute right-5 top-7 h-[70%] w-4 rounded-full bg-[#f6d36e]/12 blur-sm" />
-        <div className="absolute left-1/2 top-1/2 grid h-24 w-24 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border border-[#f1cf76]/84 bg-[radial-gradient(circle_at_35%_22%,rgba(255,255,255,0.84),rgba(255,248,220,0.55)_42%,rgba(239,196,91,0.28))] text-[#d89c25] shadow-[0_20px_52px_rgba(211,148,31,0.26),inset_0_1px_0_rgba(255,255,255,0.84)]">
-          <CheckGlyph className="h-12 w-12" />
-        </div>
+      <div className="absolute left-1/2 top-[43%] h-[166px] w-[210px] -translate-x-1/2 -translate-y-1/2">
+        <GlassConfirmationBox />
       </div>
       <MiniSparkles />
+    </div>
+  );
+}
+
+function GlassConfirmationBox({ showCheck = true }) {
+  return (
+    <div className="absolute inset-0">
+      <div className="absolute inset-x-5 bottom-2 h-20 rounded-[26px] border border-[#f0d282]/68 bg-[linear-gradient(180deg,rgba(255,250,228,0.52),rgba(239,196,91,0.22))] shadow-[0_22px_48px_rgba(211,148,31,0.18),inset_0_1px_0_rgba(255,255,255,0.7)]" />
+      <div className="absolute left-7 right-7 bottom-3 h-10 rounded-[20px] border border-[#efc45b]/42 bg-[#efc45b]/14" />
+      <div className="absolute inset-0 rounded-[36px] border border-white/86 bg-white/30 shadow-[0_34px_92px_rgba(215,156,44,0.22),0_0_0_1px_rgba(239,211,142,0.18),inset_0_1px_0_rgba(255,255,255,0.96),inset_0_-28px_54px_rgba(239,196,91,0.13)] backdrop-blur-2xl" />
+      <div className="absolute inset-[1px] rounded-[35px] bg-[linear-gradient(135deg,rgba(255,255,255,0.62),transparent_36%,rgba(239,196,91,0.12)_76%,rgba(255,255,255,0.24))]" />
+      <svg className="absolute inset-0 h-full w-full overflow-visible" fill="none" viewBox="0 0 210 166">
+        <path d="M34 112 72 86h68l36 26" stroke="rgba(255,255,255,0.62)" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" />
+        <path d="M34 112v26c36 14 107 14 142 0v-26" stroke="rgba(239,196,91,0.28)" strokeLinecap="round" strokeWidth="2" />
+        <path d="M72 86v36M140 86v36" stroke="rgba(255,255,255,0.42)" strokeLinecap="round" strokeWidth="1.5" />
+        <path d="M52 128c28 10 78 12 112 0" stroke="rgba(255,255,255,0.46)" strokeLinecap="round" strokeWidth="2" />
+      </svg>
+      <div className="absolute inset-x-7 top-5 h-12 rounded-full bg-white/42 blur-sm" />
+      <div className="absolute left-5 top-8 h-[66%] w-5 rounded-full bg-white/30 blur-sm" />
+      <div className="absolute right-6 top-10 h-[54%] w-3 rounded-full bg-[#f6d36e]/16 blur-sm" />
+      <div className="absolute left-1/2 top-[54%] h-28 w-28 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#efc45b]/18 blur-2xl" />
+      {showCheck && (
+        <div className="absolute left-1/2 top-[50%] grid h-28 w-28 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border border-[#f1cf76]/84 bg-[radial-gradient(circle_at_35%_22%,rgba(255,255,255,0.9),rgba(255,248,220,0.62)_42%,rgba(239,196,91,0.3))] text-[#d89c25] shadow-[0_22px_54px_rgba(211,148,31,0.28),inset_0_1px_0_rgba(255,255,255,0.88)]">
+          <div className="absolute inset-3 rounded-full border border-white/44" />
+          <CheckGlyph className="h-14 w-14" />
+        </div>
+      )}
     </div>
   );
 }
